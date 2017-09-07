@@ -2,46 +2,41 @@
 <html>
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="js/tablequerywrapper.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', {'packages' : ['table']});
-        google.charts.setOnLoadCallback(init);
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable);
 
-        var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/1n8S9kbZ03sMvkoGS5c6RQrSPnKSTt9B16bP-r7qdt58/edit#gid=1529355088';
-        var query, options, container;
-
-        function init() {
-            query = new google.visualization.Query(dataSourceUrl);
-            container = document.getElementById("table_div");
-            options = {
-                pageSize: 20,
+        function drawTable() {
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1n8S9kbZ03sMvkoGS5c6RQrSPnKSTt9B16bP-r7qdt58/edit#gid=1529355088');
+            var options = {
+                pageSize: 10,
                 page:'enable',
                 sortColumn: 1,
                 sortAscending: false
             };
-            sendAndDraw();
+
+            query.send(handleQueryResponse);
+
+
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+
+                // Create our data table.
+                var data = response.getDataTable();
+                var table  = new google.visualization.Table(document.getElementById('table_div'));
+
+
+                table.draw(data, options);
+
+            }
         }
 
-        function sendAndDraw() {
-            query.abort();
-            var tableQueryWrapper = new TableQueryWrapper(query, container, options);
-            tableQueryWrapper.sendAndDraw();
-        }
-
-
-        function setOption(prop, value) {
-            options[prop] = value;
-            sendAndDraw();
-        }
-
-var cell = document.getElementsByTagName('td');
-parent.appendChild(cell);
-cell.style.width = '50px';
-
-    </script>
-
-
+       </script>
 </head>
+
 
 <style>
 
@@ -53,7 +48,7 @@ cell.style.width = '50px';
         margin-left: 10px;
         border-collapse: collapse;
         text-align: left;
-        width: 70%;
+        width: 80%;
 
         /*border-spacing: 50px 0;*/
     }
