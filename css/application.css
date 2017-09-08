@@ -369,7 +369,8 @@ h4 {
   color: white; }
 
 h5 {
-  color: white;
+  color: #ed164e;
+  padding-top: 10px;
   padding-bottom: 5vw;
   font-size: 0.8em;
   line-height: 1.5em; }
