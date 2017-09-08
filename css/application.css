@@ -303,7 +303,8 @@ h1 {
   text-align: left;
   color: #ed164e;
   line-height: 1.0em;
-  font-weight: bold; }
+  font-family: "Arial", sans-serif;
+  font-weight: 800; }
   @media (max-width: 2570px) {
     h1 {
       font-size: 8em; } }
