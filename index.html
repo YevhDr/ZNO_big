@@ -47,7 +47,13 @@
           type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.4/d3.min.js"></script>
+
     <!--<script type="text/javascript">-->
         <!--google.charts.load('current', {'packages':['table']});-->
         <!--google.charts.setOnLoadCallback(drawTable);-->
@@ -87,64 +93,57 @@
 <style>
 
 
-    #table_div {
-        margin-top: 10px;
-        border-collapse: collapse;
-        text-align: left;
-        width: 80%;
+    /*#table_div {*/
+        /*margin-top: 10px;*/
+        /*border-collapse: collapse;*/
+        /*text-align: left;*/
+        /*width: 80%;*/
 
-        /*border-spacing: 50px 0;*/
-    }
+        /*!*border-spacing: 50px 0;*!*/
+    /*}*/
 
-    thead {
-        background-color: #f5f5f5;
-    }
+    /*thead {*/
+        /*background-color: #f5f5f5;*/
+    /*}*/
 
-    th, td {
-        border-bottom: 1px solid #ddd;
-    }
+    /*th, td {*/
+        /*border-bottom: 1px solid #ddd;*/
+    /*}*/
 
-    tr:hover {
-        background-color: #faf6c0;
-    }
+    /*tr:hover {*/
+        /*background-color: #faf6c0;*/
+    /*}*/
 
-    .focus circle {
-        fill: black;
-        opacity: 0.7;
-        stroke: none;
-    }
+    /*.focus circle {*/
+        /*fill: black;*/
+        /*opacity: 0.7;*/
+        /*stroke: none;*/
+    /*}*/
 
-    tbody {
-        font-weight: normal;
-    }
+    /*tbody {*/
+        /*font-weight: normal;*/
+    /*}*/
 
-    td {
-        padding: 10px 0;
-    }
+    /*td {*/
+        /*padding: 10px 0;*/
+    /*}*/
 
 </style>
 
 <body>
 <header>
 
-<div class="container">
-
-    <div class="rows">
-
-        <div class="col-lg-5 col-md-6 col-sm-4 col-xs-12">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5  col-md-6 col-xs-offset-1 col-sm-4 col-xs-12">
         <h1>БАКАЛАВРАТ В ОБХІД ЗНО</h1>
         <h3>Пільговики серйозна та не найбільша проблема якості вищої освіти. </h3>
         <div class="credits"><h5>Текст:<b> </b>, дані</b><br/>Опубліковано: 27 червня 2017 року</h5>
                 <div class="container"> </div> </div>
-    </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <img class="img" src="img/1.jpg">
-        </div>
 
     </div>
+</div>
 </div>
 </header>
 
@@ -165,15 +164,22 @@
 <p>Проте ми виявили ще одну категорію вступників, що іде до вишів без складання ЗНО і є куди більш численною. Це молоді люди, які мають базовий кваліфікаційний рівень «Молодшого спеціаліста» – випускники училищ, технікумів, коледжів. Для вступу їм достатньо скласти фаховий іспит безпосередньо при ВНЗ. Додатково враховується середній бал попереднього диплому. </p>
 <p>За нашим підрахунком цього року їм припало аж 27% бюджетних місць. </p>
 <p>Вступ до ВНЗ після училищ залишається чи не єдиними шляхом отримати вищу освіту в обхід  обов’язкового тестування. Отримавши освітньо-кваліфікаційний рівень молодшого спеціаліста, людина іде на бакалаврат, здебільшого на скорочений термін навчання. І через два роки має такий самий диплом бакалавра, як і звичайний вступник ЗНОшник після 4 років навчання. </p>
-<p>Бюджетні місця під молодших спеціалістів Міністерство освіти і науки виділяє окремо кожному ВНЗ. Напередодні вступної кампанії вищий навчальний заклад розраховує, скільки молодших спеціалістів зможе набрати, і подає відповідний запит до МОНу на погодження.  </p>
+<p>Бюджетні місця під молодших спеціалістів Міністерство освіти і науки виділяє окремо кожному ВНЗ. Напередодні вступної кампанії вищий навчальний заклад розраховує, скільки молодших спеціалістів зможе набрати, і подає відповідний запит до МОНу на погодження.</p>
 <p>Далі погоджені місця треба заповнити. Тож часто вищі навчальні заклади домовляються з училищами та коледжами заздалегідь, десь наприкінці учбового року, іноді відразу забираючи дипломи потенційних студентів. Вступні іспити в такому випадку лише формальність, адже в результаті зацікавлені обидві сторони. </p>
 <p>Велика кількість учнів свідомо вступають до училищ із розрахунком по закінченню  продовжити навчання у ВНЗ. Університети в свою чергу зацікавлені в тому, аби отримати від МОНу бюджетне фінансування. </p>
-<p>Пропонуємо вам самостійно дослідити, скільки вступників бюджетників не складали ЗНО в тому чи іншому ВНЗ і зробити власні висновки.</p>
-<div id="table_div"></div>
- <p>Для того, аби відсортувати дані в таблиці за тим чи іншим стовпчиком, клікніть на його заголовок. Ви можете розташувати навчальні заклади в порядку збільшення та зменшення показників по кожній колонці. </p>
+
+    <p style="text-align: left; width:100%"><i>Пропонуємо вам самостійно дослідити, скільки молодших спеціалістів вступило на ту чи іншу спеціальність</i></p>
+    <table id="table2_div" class="display" width="100%"></table>
+
+    <p style="text-align: left; width:100%"><i>Для того, аби відсортувати дані в таблиці за тим чи іншим стовпчиком, клікніть на його заголовок. Ви можете подивитись, скільки молодших спеціалістів по тій чи іншій спеціальності набрали різні ВНЗ. Для цього введіть в пошукову строку назву спеціальності. Або ж відсортуйте дані за назвою навчального закладу.</i></p>
+
+    <table id="example" class="display" width="100%"></table>
+
+    <!--<div id="table_div"></div>-->
+
 
     <p>Звісно дискусія про те, а чи потрібен музичній академії сертифікат ЗНО талановитого випускника музичного училища має право на існування. Але поміж тим саме таким чином вищу освіту отримують чимало майбутніх правників, економістів,  педагогів тощо. </p>
- <div id="table2_div"></div>
+
 
 <p>Ми запитали в Міністерстві освіти і науки України, яким чином відбувається розподіл бюджетних місць під молодших спеціалістів серед вищих навчальних закладів, але відповіді поки що не отримали.</p>
 
@@ -201,8 +207,50 @@
 
 </div>
 
+<script>
 
-<script type="text/javascript" src="js/table.js"></script>
-<script type="text/javascript" src="js/table2.js"></script>
+    d3.csv("data/univ_and_spec.csv", function(dataSet) {
+
+        dataSet.forEach(function (d) {
+            d.code = +d.code;
+            d.ms = +d.ms;
+            d.pzso = +d.pzso
+        });
+
+        $('#example').DataTable({
+            data: dataSet,
+            columns: [
+                {mData: "univ", title: "університет"},
+                {mData: "code", title: "код спец-ті"},
+                {mData: "spec", title: "спеціальність"},
+                {mData: "ms", title: "мол. сп."},
+                {mData: "pzso", title: "після школи"}
+            ]
+        })
+    });
+
+
+    d3.csv("data/ms_galuz.csv", function(data) {
+
+        data.forEach(function (d) {
+            d.spec = d.spec;
+            d.amount = +d.amount;
+            d.percent = +d.percent
+        });
+
+        $('#table2_div').DataTable({
+            data: data,
+            columns: [
+                {mData: "spec", title: "спеціальність"},
+                {mData: "amount", title: "кількість"},
+                {mData: "percent", title: "відсоток"}
+            ]
+        })
+    });
+
+</script>
+
+<!--<script type="text/javascript" src="js/table.js"></script>-->
+<!--<script type="text/javascript" src="js/table2.js"></script>-->
 </body>
 </html>
