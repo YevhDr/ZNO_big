@@ -211,7 +211,7 @@ d3.json(file, function(error, data) {
 
         (function ($) {
 
-            $('#filter').keyup(function () {
+            $('#filter_t').keyup(function () {
 
                 var rex = new RegExp($(this).val(), 'i');
                 $('.searchable tr').hide();
