@@ -88,7 +88,8 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
         .attr("x", width)
         .attr("y", margin.bottom - 10)
         .style("text-anchor", "end")
-        .text(xCat);
+        // .text(xCat)
+        .text("після школи");
 
     svg.append("g")
         .classed("y axis", true)
@@ -99,7 +100,8 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
         .attr("y", -margin.left)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text(yCat);
+        // .text(yCat);
+        .text("молодші спеціалісти");
 
     var objects = svg.append("svg")
         .classed("objects", true)
