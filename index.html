@@ -53,175 +53,194 @@
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.4/d3.min.js"></script>
-
-    <!--<script type="text/javascript">-->
-        <!--google.charts.load('current', {'packages':['table']});-->
-        <!--google.charts.setOnLoadCallback(drawTable);-->
-
-        <!--function drawTable() {-->
-            <!--var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1n8S9kbZ03sMvkoGS5c6RQrSPnKSTt9B16bP-r7qdt58/edit#gid=1529355088');-->
-            <!--var options = {-->
-                <!--pageSize: 20,-->
-                <!--page:'enable',-->
-                <!--sortColumn: 1,-->
-                <!--sortAscending: false-->
-            <!--};-->
-
-            <!--query.send(handleQueryResponse);-->
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="js/click-table.js"></script>
+    <script src="js/scatterplot.js"></script>
 
 
-            <!--function handleQueryResponse(response) {-->
-                <!--if (response.isError()) {-->
-                    <!--alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());-->
-                    <!--return;-->
-                <!--}-->
-
-                <!--// Create our data table.-->
-                <!--var data = response.getDataTable();-->
-                <!--var table  = new google.visualization.Table(document.getElementById('table_div'));-->
-
-
-                <!--table.draw(data, options);-->
-
-            <!--}-->
-        <!--}-->
-
-       <!--</script>-->
 </head>
-
-
 <style>
 
-img {
-    width: 50%;
-    margin: 10px;
-}
+
+    .input-group {
+        margin-top:30px;
+        margin-bottom: 30px;
+    }
+    rect {
+        fill: transparent;
+        shape-rendering: crispEdges;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: rgba(0, 0, 0, 0.1);
+        shape-rendering: crispEdges;
+    }
+
+    .axisLine {
+        fill: none;
+        shape-rendering: crispEdges;
+        stroke: rgba(0, 0, 0, 0.5);
+        stroke-width: 2px;
+    }
+
+    .dot {
+        fill-opacity: .5;
+            }
+
+    .d3-tip {
+        line-height: 1;
+        font-weight: bold;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        border-radius: 2px;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 10px;
+        width: 100%;
+        line-height: 1;
+        color: rgba(0, 0, 0, 0.8);
+        content: "\25BC";
+        position: absolute;
+        text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+        margin: -1px 0 0 0;
+        top: 100%;
+        left: 0;
+    }
 
 </style>
 
 <body>
 <header>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-10  col-md-10 col-xs-offset-1 col-sm-10 col-xs-12">
-        <h1>БАКАЛАВРАТ В ОБХІД ЗНО</h1>
-        <h3>Пільговики серйозна та не найбільша проблема якості вищої освіти. </h3>
-        <!--<div class="credits"><h5>Текст:<b> </b>, дані</b><br/>Опубліковано: 27 червня 2017 року</h5>-->
-                <!--<div class="container"> </div> </div>-->
-
-
-    </div>
-</div>
-</div>
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div class="col-lg-10  col-md-10 col-xs-offset-1 col-sm-10 col-xs-12">-->
+        <!--<h1>БАКАЛАВРАТ В ОБХІД ЗНО</h1>-->
+        <!--<h3>Пільговики серйозна та не найбільша проблема якості вищої освіти. </h3>-->
+        <!--&lt;!&ndash;<div class="credits"><h5>Текст:<b> </b>, дані</b><br/>Опубліковано: 27 червня 2017 року</h5>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="container"> </div> </div>&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
 </header>
 
-
 <div class="container">
-    <p></p>
-    <p></p>
-    <!--<ul>-->
-        <!--<li> </li>-->
-        <!--<li></li>-->
-        <!--<li></li>-->
-    <!--</ul>-->
+    <div class="row"><div class="col-md-8">
+        <div class="input-group"> <span class="input-group-addon">Пошук за фахом</span>
+            <input id="filter" type="text" class="form-control" placeholder="Наприклад, дошкільна освіта...">
+        </div>
+        <div class="input-group"> <span class="input-group-addon">Пошук за ВНЗ</span>
+            <input id="filter2" type="text" class="form-control" placeholder="Наприклад, Київський національний...">
+        </div>
+    </div>
+    </div>
 
-    <p></p>
-    <p></p>
-
-<h2><span></span></h2>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-
-
-    <table id="table2_div" class="display" width="100%"></table>
-
-    <p style="text-align: left; width:100%"><i></i></p>
-
-    <table id="example" class="display" width="100%"></table>
-
-    <!--<div id="table_div"></div>-->
-<img src="img/map-01.jpg">
-<img src="img/pic-01.jpg">
-
-    <p></p>
-
-
-<p></p>
-
-    <h2><span></span></h2>
-<p></p>
-<p></p>
-<p></p>
-
-
-
-    <h2><span></span></h2>
-<p></p>
-<p></p>
-<p>
-
-    <h2><span>Як ми рахували:</span></h2>
-<p>За законом вступник повинен мати як мінімум три сертифікати ЗНО. Для творчих спеціальностей допускається два ЗНО та творчий іспит. Інформаційна система «Конкурс» (сайт vstup.info) містить інформацію щодо всіх абітурієнтів, включаючи інформацію про складові конкурсного бала. </p>
-<p>Тож вступники, які мали три або два  ЗНО рахувались нами як такі, що вступили за результатами ЗНО. Ті, хто мав лише 1 сертифікат або не мав жодного ми відносили до тих, хто не складав ЗНО. </p>
-    <p>По факту вступна кампанія триває до кінця вересня, але зарахування на бюджетну форму навчання відбулось ще на початку серпня, тож цифри, які ми наводимо є цілком показовими для розуміння картини.</p>
-    <p></p>
-    <p></p>
-
-
+<div id="scatter"></div>
+<input id="budget" type="button" name="budget" value="Бюджет">
+<input id="contract" type="button" name="contract" value="Контракт">
 
 </div>
 
-<script>
-
-    d3.csv("data/univ_and_spec.csv", function(dataSet) {
-
-        dataSet.forEach(function (d) {
-            d.code = +d.code;
-            d.ms = +d.ms;
-            d.pzso = +d.pzso
-        });
-
-        $('#example').DataTable({
-            data: dataSet,
-            columns: [
-                {mData: "univ", title: "університет"},
-                {mData: "code", title: "код спец-ті"},
-                {mData: "spec", title: "спеціальність"},
-                {mData: "ms", title: "мол. сп."},
-                {mData: "pzso", title: "після школи"}
-            ]
-        })
-
-    });
+<!-----------SCATTERPLOT-------------->
 
 
-    d3.csv("data/ms_galuz.csv", function(data) {
 
-        data.forEach(function (d) {
-            d.spec = d.spec;
-            d.amount = +d.amount;
-            d.percent = +d.percent
-        });
 
-        $('#table2_div').DataTable({
-            data: data,
-            columns: [
-                {mData: "spec", title: "спеціальність"},
-                {mData: "amount", title: "кількість"},
-                {mData: "percent", title: "відсоток"}
-            ]
-        })
-    });
-    $('tbody td:eq(3)').hover( function (d) {return d.percent}).click();
+
+
+
+
+
+
+
+<!--TABLES WITH FILTER-->
+
+<!--<div class="container">-->
+    <!--<div class="row"><div class="col-md-8">-->
+            <!--<div class="input-group"> <span class="input-group-addon">Пошук за фахом</span>-->
+        <!--<input id="filter" type="text" class="form-control" placeholder="Наприклад, дошкільна освіта...">-->
+            <!--</div>-->
+        <!--<div class="input-group"> <span class="input-group-addon">Пошук за ВНЗ</span>-->
+            <!--<input id="filter2" type="text" class="form-control" placeholder="Наприклад, Київський національний...">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="row"><div class="col-md-8">
+           <div id="chart"></div>
+            <div class="spec"></div>
+            <div class="vnz"></div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+<!--TABLES FROM DATA.TABLE.JS-->
+<!--<script type="text/javascript" src="js/table.js"></script>-->
+<!--<script type="text/javascript" src="js/table2.js"></script>-->
+<!--<script>-->
+
+    <!--d3.csv("data/univ_and_spec.csv", function(dataSet) {-->
+
+        <!--dataSet.forEach(function (d) {-->
+            <!--d.code = +d.code;-->
+            <!--d.ms = +d.ms;-->
+            <!--d.pzso = +d.pzso-->
+        <!--});-->
+
+        <!--$('#example').DataTable({-->
+            <!--data: dataSet,-->
+            <!--columns: [-->
+                <!--{mData: "univ", title: "університет"},-->
+                <!--{mData: "code", title: "код спец-ті"},-->
+                <!--{mData: "spec", title: "спеціальність"},-->
+                <!--{mData: "ms", title: "мол. сп."},-->
+                <!--{mData: "pzso", title: "після школи"}-->
+            <!--]-->
+        <!--})-->
+
+    <!--});-->
+
+
+    <!--d3.csv("data/spec_budg_and_contr.csv", function(data) {-->
+
+        <!--data.forEach(function (d) {-->
+            <!--d.contract = +d.contract;-->
+            <!--d.perc_contr = +d.perc_contr;-->
+            <!--d.budget = +d.budget;-->
+            <!--d.perc_budg = +d.perc_budg;-->
+
+        <!--});-->
+
+        <!--$('#table2_div').DataTable({-->
+            <!--data: data,-->
+            <!--columns: [-->
+                <!--{mData: "code", title: "код спец-ті"},-->
+                <!--{mData: "spec", title: "спеціальність"},-->
+                <!--{mData: "contract", title: "вступило на контракт"},-->
+                <!--{mData: "perc_contr", title: "контракт,%"},-->
+                <!--{mData: "budget", title: "вступило на бюджет"},-->
+                <!--{mData: "perc_budg", title: "бюджет,%"}-->
+            <!--]-->
+        <!--})-->
+    <!--});-->
+    <!--$('tbody td:eq(3)').hover( function (d) {return d.percent}).click();-->
 
 
 </script>
-
-<!--<script type="text/javascript" src="js/table.js"></script>-->
-<!--<script type="text/javascript" src="js/table2.js"></script>-->
 </body>
 </html>
