@@ -15,7 +15,7 @@ var xCat = "x1",
     vnz = "vnz",
     spec = "spec",
     rCat = 3,
-    colorCat = "green";
+    colorCat = "#faa61a";
 
 
 
@@ -154,7 +154,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
     function contract() {
         xCat = "x2";
         yCat = "y2";
-        colorCat = "blue";
+        colorCat = "#ff9999";
         var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
             xMin = d3.min(data, function(d) { return d[xCat]; }),
             xMin = xMin > 0 ? 0 : xMin,
@@ -168,14 +168,14 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
         svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
 
-        objects.selectAll(".dot").transition().duration(1000).attr("transform", transform).attr('fill', colorCat);
+        objects.selectAll(".dot").style('fill', colorCat).transition().duration(1000).attr("transform", transform);
 
     }
 
     function budget() {
         xCat = "x1";
         yCat = "y1";
-        colorCat = "green";
+        colorCat = "#faa61a";
         var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
             xMin = d3.min(data, function(d) { return d[xCat]; }),
             xMin = xMin > 0 ? 0 : xMin,
@@ -218,7 +218,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
                 //if (d[4].indexOf(value) == -1){ // color gray if not a match
                 if (!d.spec.match(re) ){ // color gray if not a match
                     d3.select(dots[0][i])
-                        .style("opacity", 0)
+                        .style("opacity", 0.2)
                         .style("fill", "#ddd")
                         .attr("r", rCat);
 
@@ -226,7 +226,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
                     d3.select(dots[0][i])
                         .style("opacity", 0.7)
                         .style("fill", colorCat)
-                        .attr("r", rCat);
+                        .attr("r", rCat * 2);
 
                 }
                 i++;
@@ -255,7 +255,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
                 //if (d[4].indexOf(value) == -1){ // color gray if not a match
                 if (!d.vnz.match(re) ){ // color gray if not a match
                     d3.select(dots[0][i])
-                        .style("opacity", 0)
+                        .style("opacity", 0.2)
                         .style("fill", "#ddd")
                         .attr("r", rCat);
 
@@ -263,7 +263,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
                     d3.select(dots[0][i])
                         .style("opacity", 0.7)
                         .style("fill", colorCat)
-                        .attr("r", rCat);
+                        .attr("r", rCat * 2);
 
                 }
                 i++;
