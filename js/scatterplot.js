@@ -1,8 +1,12 @@
-var margin = { top: 50, right: 300, bottom: 50, left: 50 },
-    outerWidth = 1050,
-    outerHeight = 500,
+
+
+var margin = { top: 50, right: 20, bottom: 50, left: 50 },
+    outerWidth = 600,
+    outerHeight = 400,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
+
+
 
 var x = d3.scale.linear()
     .range([0, width]).nice();
@@ -89,7 +93,8 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
         .attr("y", margin.bottom - 10)
         .style("text-anchor", "end")
         // .text(xCat)
-        .text("після школи");
+        .text("після школи")
+        .attr("class", "axis");
 
     svg.append("g")
         .classed("y axis", true)
@@ -101,7 +106,8 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         // .text(yCat);
-        .text("молодші спеціалісти");
+        .text("молодші спеціалісти")
+        .attr("class", "axis");
 
     var objects = svg.append("svg")
         .classed("objects", true)
@@ -168,7 +174,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
         var svg = d3.select("#scatter").transition();
 
-        svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
+        svg.select(".x.axis").duration(750).call(xAxis).select(".label").text("після школи");
 
         objects.selectAll(".dot").style('fill', colorCat).transition().duration(1000).attr("transform", transform);
 
@@ -189,7 +195,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
         var svg = d3.select("#scatter").transition();
 
-        svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
+        svg.select(".x.axis").duration(750).call(xAxis).select(".label").text("після школи");
 
         objects.selectAll(".dot").style('fill', colorCat).transition().duration(1000).attr("transform", transform);
     }
@@ -220,13 +226,13 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
                 //if (d[4].indexOf(value) == -1){ // color gray if not a match
                 if (!d.spec.match(re) ){ // color gray if not a match
                     d3.select(dots[0][i])
-                        .style("opacity", 0.2)
-                        .style("fill", "#ddd")
-                        .attr("r", rCat);
+                        .style("visibility", "hidden");
+
+
 
                 } else {
                     d3.select(dots[0][i])
-                        .style("opacity", 0.7)
+                        .style("visibility", "visible")
                         .style("fill", colorCat)
                         .attr("r", rCat * 2);
 
@@ -236,8 +242,8 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
         } else {
 
             dots
+                .style("visibility", "visible")
                 .style("fill", colorCat)
-                .style("fill-opacity", 0.7)
                 .attr("r", rCat);
 
         }
@@ -257,14 +263,12 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
                 //if (d[4].indexOf(value) == -1){ // color gray if not a match
                 if (!d.vnz.match(re) ){ // color gray if not a match
                     d3.select(dots[0][i])
-                        .style("opacity", 0.2)
-                        .style("fill", "#ddd")
-                        .attr("r", rCat);
+                        .style("visibility", "hidden");
 
                 } else {
                     d3.select(dots[0][i])
                         .style("opacity", 0.7)
-                        .style("fill", colorCat)
+                        .style("visibility", "visible")
                         .attr("r", rCat * 2);
 
                 }
@@ -274,7 +278,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
             dots
                 .style("fill", colorCat)
-                .style("fill-opacity", 0.7)
+                .style("visibility", "visible")
                 .attr("r", rCat);
 
         }
@@ -283,23 +287,9 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
 });
 
-
-// $(document).ready(function () {
-//
-//     (function ($) {
-//
-//         $('#filter').keyup(function () {
-//
-//             var rex = new RegExp($(this).val(), 'i');
-//             $('circle.dot').hide();
-//             $('circle.dot').filter(function () {
-//                 return rex.test($(this).text());
-//             }).show();
-//
-//         })
-//
-//     }(jQuery));
-//
-// });
+d3.select(window).on('resize', resize);
+function resize() {
+    console.log("hello")
+}
 
 
