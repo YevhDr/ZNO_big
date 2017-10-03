@@ -1,4 +1,4 @@
-
+// ww = document.getElementById("scatter").clientWidth,
 
 var margin = { top: 50, right: 20, bottom: 50, left: 50 },
     outerWidth = 600,
@@ -285,11 +285,12 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
     }).keyup();
 
 
+    d3.select(window).on('resize', resize);
+    function resize() {
+
+    }
 });
 
-d3.select(window).on('resize', resize);
-function resize() {
-    console.log("hello")
-}
+
 
 
