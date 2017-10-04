@@ -756,4 +756,8 @@ and also iPads specifically.
 .axis {
   color: #8e8f91; }
 
+#scatter {
+  width: 100%;
+  overflow: visible; }
+
 /*# sourceMappingURL=application.css.map */

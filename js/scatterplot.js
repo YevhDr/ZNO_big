@@ -1,9 +1,9 @@
-// ww = document.getElementById("scatter").clientWidth,
+$( document ).ready(function() {
 
-var margin = { top: 50, right: 20, bottom: 50, left: 50 },
-    outerWidth = 600,
+var margin = { top: 20, right: 20, bottom: 50, left: 50 },
+    ww = document.getElementById("scatter").clientWidth,
     outerHeight = 400,
-    width = outerWidth - margin.left - margin.right,
+    width = ww - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
 
@@ -64,7 +64,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
     var svg = d3.select("#scatter")
         .append("svg")
-        .attr("width", outerWidth)
+        .attr("width", ww)
         .attr("height", outerHeight)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -292,5 +292,5 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 });
 
 
-
+});
 
