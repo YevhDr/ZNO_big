@@ -2,7 +2,7 @@ $( document ).ready(function() {
 
 var margin = { top: 20, right: 20, bottom: 50, left: 50 },
     ww = document.getElementById("scatter").clientWidth,
-    outerHeight = 500,
+    outerHeight = ww / 1.5,
     width = ww - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
