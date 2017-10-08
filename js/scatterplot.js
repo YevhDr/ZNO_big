@@ -77,8 +77,8 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-            return d.spec + " ("+ d.code + ")" + "<br>" + d.vnz + "<br>" +
-                "мол.спец-тів: " + d[yCat] + "; " + "<br>" + "після школи: " + d[xCat];
+            return "Cпец-ть: " + d.spec + ";" + "<br>" + d.code + "; " + "<br>" + d.vnz + "; " + "<br>" +
+                "мол.спец-тів: " + d[yCat]+ ";"  + "<br>" + "після школи: " + d[xCat]+ ";";
         });
 
     svg.call(tip);
