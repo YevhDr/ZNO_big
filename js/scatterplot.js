@@ -2,7 +2,7 @@ $( document ).ready(function() {
 
 var margin = { top: 20, right: 20, bottom: 50, left: 50 },
     ww = document.getElementById("scatter").clientWidth,
-    outerHeight = 400,
+    outerHeight = 500,
     width = ww - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
@@ -18,15 +18,18 @@ var xCat = "x1",
     yCat = "y1",
     vnz = "vnz",
     spec = "spec",
-    rCat = 3,
-    colorCat = "#faa61a";
+    rCat = 3
+    // , colorCat = "#faa61a"
+    ;
 
 
 
-d3.csv("data/zno_scatterplot.csv", function(data) {
+d3.csv("data/zno_for scatterplot(new).csv", function(data) {
     data.forEach(function(d) {
-        d.pzso_bud = +d.pzso_bud;
-        d.ms_bud = +d.ms_bud;
+        d.x1 = +d.x1;
+        d.y1 = +d.y1;
+        d.x2 = +d.x2;
+        d.y2 = +d.y2;
         d.pzso_cont = +d.pzso_cont;
         d.ms_cont = +d.ms_cont;
 
@@ -134,9 +137,23 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
         .enter().append("circle")
         .classed("dot", true)
         // .attr("r", function (d) { return 6 * Math.sqrt(d[rCat] / Math.PI); })
-        .attr('r', rCat)
+        // .attr("r", function (d) { if (d[rCat] >= 50) { return 5; } else { return 3; } })
+        .attr('r', 3)
         .attr("transform", transform)
-        .style("fill",  colorCat)
+        .style("fill",  function (d) {
+            if (d[yCat] / ((d[xCat] + d[yCat]) / 100) > 27) {
+                return "red";
+            } else {
+                return "#8e8f91"; } })
+
+        // .style("fill",  function (d) {
+        //     if (d[rCat1] > 50 & d[rCat2] < 50) {
+        //         return "red";
+        //     } else {
+        //         return "#8e8f91"; } })
+
+
+        // .style("fill",  colorCat)
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
 
@@ -162,7 +179,7 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
     function contract() {
         xCat = "x2";
         yCat = "y2";
-        colorCat = "#ff9999";
+        colorCat = "#a4a5a7";
         var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
             xMin = d3.min(data, function(d) { return d[xCat]; }),
             xMin = xMin > 0 ? 0 : xMin,
@@ -176,7 +193,14 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
         svg.select(".x.axis").duration(750).call(xAxis).select(".label").text("після школи");
 
-        objects.selectAll(".dot").style('fill', colorCat).transition().duration(1000).attr("transform", transform);
+        objects.selectAll(".dot")
+            .style('fill',  function (d) {
+                if (d[yCat] / ((d[xCat] + d[yCat]) / 100) > 39.8) {
+                    return "red";
+                } else {
+                    return "#8e8f91"; } })
+            .transition().duration(1000)
+            .attr("transform", transform);
 
     }
 
@@ -197,7 +221,14 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
         svg.select(".x.axis").duration(750).call(xAxis).select(".label").text("після школи");
 
-        objects.selectAll(".dot").style('fill', colorCat).transition().duration(1000).attr("transform", transform);
+        objects.selectAll(".dot")
+            .style('fill',  function (d) {
+                if (d[yCat] / ((d[xCat] + d[yCat]) / 100) > 27) {
+                    return "red";
+                } else {
+                    return "#8e8f91"; } })
+            .transition().duration(1000)
+            .attr("transform", transform);
     }
 
     function zoom() {
@@ -233,8 +264,12 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
                 } else {
                     d3.select(dots[0][i])
                         .style("visibility", "visible")
-                        .style("fill", colorCat)
-                        .attr("r", rCat * 2);
+                        .style("fill",  function (d) {
+                            if (d[yCat] / ((d[xCat] + d[yCat]) / 100) > 27) {
+                                return "red";
+                            } else {
+                                return "#8e8f91"; } })
+                        .attr("r", 6);
 
                 }
                 i++;
@@ -243,8 +278,12 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
 
             dots
                 .style("visibility", "visible")
-                .style("fill", colorCat)
-                .attr("r", rCat);
+                .style("fill",  function (d) {
+                    if (d[yCat] / ((d[xCat] + d[yCat]) / 100) > 27) {
+                        return "red";
+                    } else {
+                        return "#8e8f91"; } })
+                .attr("r", 3);
 
         }
     }).keyup();
@@ -277,7 +316,11 @@ d3.csv("data/zno_scatterplot.csv", function(data) {
         } else {
 
             dots
-                .style("fill", colorCat)
+                .style("fill",  function (d) {
+                    if (d[yCat] / ((d[xCat] + d[yCat]) / 100) > 27) {
+                        return "red";
+                    } else {
+                        return "#8e8f91"; } })
                 .style("visibility", "visible")
                 .attr("r", rCat);
 
