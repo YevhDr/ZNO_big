@@ -160,21 +160,22 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
 
+    // var color = [1,2];
     // var legend = svg.selectAll(".legend")
-    //     .data(color.domain())
+    //     .data(color)
     //     .enter().append("g")
-    //     .classed("legend", true)
-    //     .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+    //     .classed("legend", true);
+    //     // .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
     //
     // legend.append("circle")
     //     .attr("r", 3.5)
-    //     .attr("cx", width + 20)
-    //     .attr("fill", colorCat);
+    //     .attr("cx", ww)
+    //     .attr("fill", color);
     //
     // legend.append("text")
-    //     .attr("x", width + 26)
+    //     .attr("x", ww)
     //     .attr("dy", ".35em")
-    //     .text(function(d) { return d; });
+    //     .text("порог");
 
     d3.select("#contract").on("click", contract);
     d3.select("#budget").on("click", budget);
@@ -337,6 +338,12 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
     }
 });
 
+d3.select("#scatter svg").select(".dots")
+    .append("circle")
+    .attr("cx", ww + 20)
+    .attr("cy", height)
+    .attr("r", 20)
+    .attr("fill", "red");
 
 });
 
