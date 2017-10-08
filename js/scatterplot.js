@@ -24,7 +24,7 @@ var xCat = "x1",
 
 
 
-d3.csv("data/zno_for scatterplot(new).csv", function(data) {
+d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
     data.forEach(function(d) {
         d.x1 = +d.x1;
         d.y1 = +d.y1;
@@ -36,11 +36,11 @@ d3.csv("data/zno_for scatterplot(new).csv", function(data) {
     });
 
     var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-        xMin = d3.min(data, function(d) { return d[xCat]; }),
-        xMin = xMin > 0 ? 0 : xMin,
+        xMin = d3.min(data, function(d) { return d[xCat]; }) ,
+        xMin = -3,
         yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
         yMin = d3.min(data, function(d) { return d[yCat]; }),
-        yMin = yMin > 0 ? 0 : yMin;
+        yMin = -3;
 
     x.domain([xMin, xMax]);
     y.domain([yMin, yMax]);
@@ -77,7 +77,8 @@ d3.csv("data/zno_for scatterplot(new).csv", function(data) {
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-            return d.spec + "<br>" + d.vnz;
+            return d.spec + " ("+ d.code + ")" + "<br>" + d.vnz + "<br>" +
+                "мол.спец-тів: " + d[yCat] + "; " + "<br>" + "після школи: " + d[xCat];
         });
 
     svg.call(tip);
@@ -134,7 +135,9 @@ d3.csv("data/zno_for scatterplot(new).csv", function(data) {
 
     var dots = objects.selectAll(".dot")
         .data(data)
-        .enter().append("circle")
+        .enter()
+        .append("circle")
+        // .filter(function (d) { return d[yCat] > 0 && d[xCat] > 0 ; })
         .classed("dot", true)
         // .attr("r", function (d) { return 6 * Math.sqrt(d[rCat] / Math.PI); })
         // .attr("r", function (d) { if (d[rCat] >= 50) { return 5; } else { return 3; } })
@@ -182,10 +185,10 @@ d3.csv("data/zno_for scatterplot(new).csv", function(data) {
         colorCat = "#a4a5a7";
         var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
             xMin = d3.min(data, function(d) { return d[xCat]; }),
-            xMin = xMin > 0 ? 0 : xMin,
+            xMin = -5,
             yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
             yMin = d3.min(data, function(d) { return d[yCat]; }),
-            yMin = yMin > 0 ? 0 : yMin;
+            yMin = -5;
 
         zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
 
@@ -210,10 +213,10 @@ d3.csv("data/zno_for scatterplot(new).csv", function(data) {
         colorCat = "#faa61a";
         var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
             xMin = d3.min(data, function(d) { return d[xCat]; }),
-            xMin = xMin > 0 ? 0 : xMin,
+            xMin = -3,
             yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
             yMin = d3.min(data, function(d) { return d[yCat]; }),
-            yMin = yMin > 0 ? 0 : yMin;
+            yMin = -3;
 
         zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
 
