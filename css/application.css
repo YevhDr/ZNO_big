@@ -760,4 +760,20 @@ and also iPads specifically.
   width: 100%;
   overflow: visible; }
 
+div.tooltips {
+  color: white;
+  position: absolute;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: #3f4042;
+  border: 0;
+  border-radius: 3px;
+  pointer-events: none; }
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0); }
+
 /*# sourceMappingURL=application.css.map */
