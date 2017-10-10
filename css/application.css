@@ -286,98 +286,63 @@ p, li {
       fill: none;
       stroke: none; }
 
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  vertical-align: baseline;
-  background: transparent; }
-
 body {
-  height: 100vh;
-  padding-bottom: 1vw;
-  font-family: "Arial", sans-serif; }
-
-.spec, p .remove {
-  font-family: "PT Sans",sans-serif;
-  font-size: 1em;
-  line-height: 1em; }
-
-thead {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1;
-  color: #555;
-  text-align: center;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 4px; }
+  font: 12px/1.2 Georgia, Serif; }
 
 h1 {
-  text-align: left;
+  text-align: center;
   color: #ed164e;
-  line-height: 1.0em;
-  font-family: "Arial", sans-serif;
-  font-weight: 800; }
+  line-height: 1.2em;
+  font-family: "PragmaticaC", sans-serif;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-transform: uppercase; }
   @media (max-width: 2570px) {
-    h1 {
-      font-size: 8em; } }
-  @media (max-width: 1440px) {
-    h1 {
-      font-size: 6em; } }
-  @media (max-width: 1285px) {
-    h1 {
-      font-size: 5em; } }
-  @media (max-width: 1024px) {
-    h1 {
-      font-size: 6em; } }
-  @media (max-width: 767px) {
     h1 {
       font-size: 4em; } }
-  @media (max-width: 400px) {
+  @media (max-width: 1440px) {
+    h1 {
+      font-size: 4em; } }
+  @media (max-width: 1285px) {
+    h1 {
+      font-size: 4em; } }
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 3.5em; } }
+  @media (max-width: 767px) {
     h1 {
       font-size: 3em; } }
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 2em; } }
 
 h2 {
+  font-family: "PragmaticaC", sans-serif;
   text-align: left;
-  line-height: 1.4em;
+  line-height: 1.3em;
   color: white;
-  font-weight: normal;
-  padding-top: 1vw;
-  padding-bottom: 1.8vw; }
+  font-weight: normal; }
   @media (max-width: 2570px) {
     h2 {
-      font-size: 2.1em; } }
+      font-size: 2em; } }
   @media (max-width: 1440px) {
     h2 {
-      font-size: 2.0em; } }
+      font-size: 2em; } }
   @media (max-width: 1285px) {
     h2 {
-      font-size: 1.7em; } }
+      font-size: 1.6em; } }
   @media (max-width: 1024px) {
     h2 {
-      font-size: 1.7em; } }
+      font-size: 1.6em; } }
   @media (max-width: 767px) {
     h2 {
-      font-size: 1.7em; } }
+      font-size: 1.6em; } }
   @media (max-width: 400px) {
     h2 {
       font-size: 1.5em; } }
 
 h2 span {
   background-color: #ed164e; }
-
-h3 {
-  text-align: left;
-  color: #6d6e70;
-  font-size: 2.5em;
-  font-weight: bold;
-  line-height: 1.5em;
-  text-transform: uppercase;
-  width: 100%; }
-  @media (max-width: 767px) {
-    h3 {
-      margin-right: 5%; } }
 
 h4 {
   color: white; }
@@ -389,96 +354,33 @@ h5 {
   font-size: 0.8em;
   line-height: 1.5em; }
 
-h6 {
-  font-size: 2em;
-  color: grey;
-  line-height: 2em; }
-
 @media (max-width: 2570px) {
   p, li {
-    font-size: 1.5em;
-    width: 60%;
-    margin-left: 0%; } }
+    font-size: 1.3em;
+    margin-left: 0; } }
 @media (max-width: 1440px) {
   p, li {
-    font-size: 1.5em;
-    width: 60%;
-    margin-left: 0%; } }
+    font-size: 1.3em;
+    margin-left: 0; } }
 @media (max-width: 1285px) {
   p, li {
-    font-size: 1.5em;
-    width: 60%;
-    margin-left: 0%; } }
+    font-size: 1.3em;
+    margin-left: 0; } }
 @media (max-width: 767px) {
   p, li {
-    font-size: 1.5em;
-    width: 90%;
+    font-size: 1.3em;
     margin-right: 5%;
     margin-left: 5%; } }
 
-.desk_header {
-  position: relative;
-  width: 100%; }
+p.first {
+  margin-top: 40px; }
 
-.header-background {
-  width: 100%;
-  min-height: 400px; }
+p.last {
+  margin-bottom: 40px; }
 
 .img {
   position: relative;
   width: 100%; }
-
-.header-text {
-  position: absolute;
-  top: 0;
-  margin-right: 10%;
-  padding-top: 7%; }
-  @media (max-width: 2570px) {
-    .header-text {
-      margin-left: 25%;
-      width: 50%; } }
-  @media (max-width: 1440px) {
-    .header-text {
-      margin-left: 25%;
-      width: 50%; } }
-  @media (max-width: 1285px) {
-    .header-text {
-      margin-left: 25%;
-      width: 60%; } }
-  @media (max-width: 1024px) {
-    .header-text {
-      margin-left: 15%;
-      width: 80%;
-      margin-right: 10%; } }
-  @media (max-width: 767px) {
-    .header-text {
-      margin-left: 5%;
-      width: 90%; } }
-
-.header-text-m {
-  position: relative;
-  top: 0;
-  margin-right: 10%;
-  padding-top: 5%; }
-  @media (max-width: 2570px) {
-    .header-text-m {
-      margin-left: 20%;
-      width: 60%; } }
-  @media (max-width: 1440px) {
-    .header-text-m {
-      margin-left: 15%;
-      width: 60%; } }
-  @media (max-width: 1024px) {
-    .header-text-m {
-      margin-left: 10%;
-      width: 90%; } }
-  @media (max-width: 767px) {
-    .header-text-m {
-      margin-left: 5%;
-      width: 90%; } }
-
-.first-paragraph {
-  margin-top: 130vh; }
 
 .svg-container {
   opacity: 1;
@@ -487,46 +389,9 @@ h6 {
   top: 0;
   z-index: 2; }
 
-.animation-explainer {
-  color: #fff; }
-
-.credits {
-  line-height: 1.5em;
-  font-weight: 300; }
-  .credits span {
-    font-weight: 700; }
-  .credits.date {
-    margin-top: 1em;
-    font-size: 1.0em;
-    font-weight: 300; }
-  @media (max-width: 2570px) {
-    .credits {
-      font-size: 1.8em; } }
-  @media (max-width: 1440px) {
-    .credits {
-      font-size: 1.6em; } }
-  @media (max-width: 1285px) {
-    .credits {
-      font-size: 1.4em; } }
-
-.animation-explainer p {
-  color: #fff;
-  margin-bottom: 100vh; }
-
-.animation-explainer span {
-  background: rgba(221, 197, 188, 0.5); }
-  @media (max-width: 2570px) {
-    .animation-explainer span {
-      font-size: 2em; } }
-  @media (max-width: 1440px) {
-    .animation-explainer span {
-      font-size: 1.7em; } }
-  @media (max-width: 1285px) {
-    .animation-explainer span {
-      font-size: 1.3em; } }
-
-.animation h2 {
-  color: #fff; }
+.credits h6 {
+  font-size: 1em;
+  line-height: 1.3; }
 
 .quote {
   margin-top: 1em;
@@ -545,55 +410,11 @@ h6 {
       .quote::before {
         font-size: 7em; } }
 
-.disclaimer {
-  font-size: 1.3em;
-  color: #eee;
-  margin-top: 68px;
-  margin-left: 15px; }
-
 .sources {
   color: #BBC0BF;
   margin-top: 0.5em;
   margin-bottom: 2em;
   font-size: 1.1em; }
-
-.directSpeach {
-  font-style: italic; }
-
-.new-section {
-  margin-top: 5%; }
-
-@media only screen and (min-width: 768px) {
-  .mobile {
-    display: none !important;
-    padding-top: 0; }
-
-  .desktop {
-    display: block !important; } }
-@media only screen and (max-width: 767px) {
-  .mobile {
-    display: block !important; }
-
-  .desktop {
-    display: none !important; } }
-.read-more {
-  margin-bottom: 15px; }
-
-.foto {
-  width: 100%; }
-
-.map {
-  width: 80%;
-  margin-left: 10%; }
-
-.whiteback {
-  background-color: white; }
-
-.first {
-  margin-top: 40px; }
-
-.last {
-  margin-bottom: 40px; }
 
 @media (max-width: 2570px) {
   .subscript {
@@ -609,150 +430,6 @@ h6 {
   width: 100%; }
 
 /***************DATA TABLE ********************/
-* {
-  margin: 0;
-  padding: 0; }
-
-body {
-  font: 14px/1.4 Georgia, Serif; }
-
-#page-wrap {
-  margin: 50px; }
-
-p {
-  margin: 20px 0; }
-
-/*
-Generic Styling, for Desktops/Laptops
-*/
-table {
-  font-family: "PT Sans",sans-serif;
-  border-collapse: collapse; }
-  @media (min-width: 200px) and (max-width: 479px) {
-    table {
-      font-size: 4vw; } }
-  @media (min-width: 480px) and (max-width: 640px) {
-    table {
-      font-size: 2vw; } }
-  @media (min-width: 641px) and (max-width: 800px) {
-    table {
-      font-size: 2vw; } }
-  @media (min-width: 801px) and (max-width: 1200px) {
-    table {
-      font-size: 1.5vw; } }
-  @media (min-width: 1200px) {
-    table {
-      font-size: 1.2vw; } }
-
-thead {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1;
-  color: #555;
-  text-align: center;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 4px; }
-
-th {
-  cursor: s-resize;
-  background-repeat: no-repeat;
-  background-position: 3% center; }
-
-td, th {
-  padding: 6px;
-  border: 1px solid #ccc;
-  text-align: left; }
-
-div.pager {
-  text-align: left;
-  margin: 1em 0; }
-
-div.pager_remove {
-  text-align: left;
-  margin: 1em 0; }
-
-div.pager span {
-  display: inline-block;
-  width: 1.3em;
-  height: 1.3em;
-  text-align: center;
-  cursor: pointer;
-  background: #8e8f91;
-  color: #fff;
-  margin-right: 0.2em; }
-
-div.pager_remove span {
-  display: inline-block;
-  width: 1.3em;
-  height: 1.3em;
-  text-align: center;
-  cursor: pointer;
-  background: #8e8f91;
-  color: #fff;
-  margin-right: 0.5em; }
-
-div.pager span.active {
-  background: #faa61a; }
-
-div.pager_remove span.active {
-  background: #faa61a; }
-
-th.des:after {
-  content: "\21E9"; }
-
-th.aes:after {
-  content: "\21E7"; }
-
-/*
-Max width before this PARTICULAR table gets nasty
-This query will take effect for any screen smaller than 760px
-and also iPads specifically.
-*/
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
-  /*!* Hide table headers (but not display: none;, for accessibility) *!*/
-  /*thead tr {*/
-  /*position: absolute;*/
-  /*top: -9999px;*/
-  /*left: -9999px;*/
-  /*}*/
-  tr {
-    border: 1px solid #ccc; }
-
-  td {
-    /* Behave  like a "row" */
-    border: none;
-    border-bottom: 1px solid #eee;
-    position: relative; }
-
-  td:before {
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap; }
-
-  /*
-  Label the data
-  */
-  td:before {
-    /*content: attr(data-th) ": ";*/
-    font-weight: bold;
-    width: 6.5em;
-    display: inline-block; } }
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  body {
-    padding: 0;
-    margin: 0;
-    width: 320px; } }
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  body {
-    width: 495px; } }
 .axis {
   color: #8e8f91; }
 
