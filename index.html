@@ -49,13 +49,22 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <script src="lib/jquery-3.2.1.js"></script>
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.4/d3.min.js"></script>
+
+    <!--<script src=js/jquery.dataTables.min.js"></script>-->
+
     <script src="lib/d3.tip.v0.6.3.js"></script>
     <script src="js/click-table.js"></script>
     <script src="js/scatterplot.js"></script>
+
+    <script src="js/barchart.js"></script>
+    <script src="js/table.js"></script>
+
 
 
 </head>
@@ -168,6 +177,11 @@
             <p><b>Реалії вступної кампанії-2017 такі, що 27% вступників бюджетників і майже 39% контрактників є
                 випускниками профтехзакладів і коледжів, тобто такими, що не складали ЗНО.</b></p>
 
+
+
+
+
+
             <img class="img-responsive" src="img/pic-01.jpg">
             <p class="first">Напередодні вступної кампанії університети приблино “прикидують”, скільки молодших
                 спеціалістів зможуть
@@ -206,6 +220,11 @@
                 математику вступають на більш престижні економічні спеціальності. Через нестачу вступників на деякі
                 технічні спеціальності, бюджетне замовлення часто «закривають» за рахунок молодших спеціалістів”, ㅡ
                 пояснює вона.</p>
+
+
+            <img style='width: 100%;' src="img/molsp2.svg">
+
+
             <p>Але якщо мова іде про такі популярні напрями як економіка, право, фінанси, банківська справа або
                 педагогічних спеціальностей, де диплом молодшого спеціаліста не дає права викладання у школі, то це,
                 нажаль, дійсно спосіб отримати вищу освіту в легкій спосіб, каже Інна Совсун.</p>
@@ -216,11 +235,20 @@
                 педагогічні спеціальності (дошкільна освіта, початкова освіта, середня освіта), а це значить що через
                 2-3 роки ми отримаємо понад 3 тис. вчителів і понад тисячу вихователів, компетентність яких під великим
                 питанням.</p>
+
             <p>Щоб дізнатись, які вищі навчальні заклади “зловживають” набором “Молодших спеціалістів”, дивіться нашу
                 інтерактивну візуалізацію.</p>
+
         </div>
     </div>
 </div>
+
+<!--B A R  C H A R T-->
+<!--=======================-->
+<!--<div id="chart-c"></div>-->
+
+<!--<div id="chart-b"></div>-->
+
 
 
 <!--S C A T T E R P L O T-->
@@ -290,6 +318,13 @@
                 шкільну програму з української мови, біології, математики тощо. Більш логічним на його думку може бути
                 незалежне комплексне випробовування з фахових дисциплін, яке дозволить перевірити рівень саме фахової
                 підготовки та стане перехідною ланкою до університетської освіти. </p>
+
+
+            <!--T A B L E VNZ-->
+            <h3 style="font-family: 'Georgia', sans-serif; font-size: 1.2em; text-align: center"><b>Які ВНЗ найбрали найбільше молодших спеціалістів?</b></h3>
+            <table id="example"></table>
+
+
 
 
             <p>Ми не можемо стверджувати, що усі вступники з числа молодших спеціалістів мають на меті обійти ЗНО. Проте

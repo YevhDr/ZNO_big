@@ -1,30 +1,21 @@
-google.charts.load('current', {'packages':['table']});
-        google.charts.setOnLoadCallback(drawTable);
+d3.csv("data/totalMs_to_totalSt.csv", function(dataSet) {
 
-        function drawTable() {
-            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1n8S9kbZ03sMvkoGS5c6RQrSPnKSTt9B16bP-r7qdt58/edit#gid=1529355088');
-            var options = {
-                pageSize: 20,
-                page:'enable',
-                sortColumn: 1,
-                sortAscending: false
-            };
+    dataSet.forEach(function (d) {
+        d.total_st = +d.total_st;
+        d.percent = +d.percent;
+        d.mol_sp = +d.mol_sp
 
-            query.send(handleQueryResponse);
+    });
 
+    $('#example').DataTable({
+        "order": [[ 1, "desc" ]],
+        data: dataSet,
+        columns: [
+            {mData: "vnz", title: "університет"},
+            {mData: "mol_sp", title: "к-ть мол. спец."},
+            {mData: "percent", title: "від заг. к-ті бакалаврів,%"}
 
-            function handleQueryResponse(response) {
-                if (response.isError()) {
-                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-                    return;
-                }
+        ]
+    })
 
-                // Create our data table.
-                var data = response.getDataTable();
-                var table  = new google.visualization.Table(document.getElementById('table_div'));
-
-
-                table.draw(data, options);
-
-            }
-        }
+});

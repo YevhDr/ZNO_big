@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 var margin = { top: 20, right: 20, bottom: 50, left: 50 },
-    ww = document.getElementById("scatter").clientWidth / 1.1,
+    ww = document.getElementById("scatter").clientWidth ,
     outerHeight = document.getElementById("scatter").clientWidth / 1.5,
     width = ww - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
@@ -9,7 +9,7 @@ var margin = { top: 20, right: 20, bottom: 50, left: 50 },
 
 
 var x = d3.scale.linear()
-    .range([0, width]).nice();
+    .range([0, ww]).nice();
 
 var y = d3.scale.linear()
     .range([height, 0]).nice();
@@ -53,7 +53,7 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .tickSize(-width);
+        .tickSize(-ww);
 
 //    var color = d3.scale.category10();
 
@@ -88,7 +88,7 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
     //     .style("opacity", 0);
 
     svg.append("rect")
-        .attr("width", width)
+        .attr("width", ww)
         .attr("height", height);
 
     svg.append("g")
@@ -97,7 +97,7 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
         .call(xAxis)
         .append("text")
         .classed("label", true)
-        .attr("x", width)
+        .attr("x", ww - 50)
         .attr("y", margin.bottom - 10)
         .style("text-anchor", "end")
         // .text(xCat)
@@ -119,14 +119,14 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
 
     var objects = svg.append("svg")
         .classed("objects", true)
-        .attr("width", width)
+        .attr("width", ww)
         .attr("height", height);
 
     objects.append("svg:line")
         .classed("axisLine hAxisLine", true)
         .attr("x1", 0)
         .attr("y1", 0)
-        .attr("x2", width)
+        .attr("x2", ww)
         .attr("y2", 0)
         .attr("transform", "translate(0," + height + ")");
 
