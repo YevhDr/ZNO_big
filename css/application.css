@@ -56,7 +56,7 @@ p, li {
 .fa-twitter,
 .fa-facebook {
   padding: 5px;
-  color: #8e8f91;
+  color: #ed164e;
   float: right;
   margin: 5px 10px 0px 0px;
   cursor: pointer; }
@@ -513,5 +513,10 @@ th.aes:after {
   clear: left;
   font: 14px Helvetica, Arial, sans-serif;
   width: 90%; }
+
+.jumbotron {
+  background-image: url("../img/titul.jpg");
+  background-size: cover;
+  color: #ed164e; }
 
 /*# sourceMappingURL=application.css.map */
