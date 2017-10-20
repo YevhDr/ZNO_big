@@ -1,7 +1,8 @@
 $( document ).ready(function() {
+    d3.select("#budget").classed("active", true);
 
 var margin = { top: 20, right: 20, bottom: 50, left: 50 },
-    ww = document.getElementById("scatter").clientWidth ,
+    ww = document.getElementById("scatter").clientWidth / 1.2,
     outerHeight = document.getElementById("scatter").clientWidth / 1.5,
     width = ww - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
@@ -9,7 +10,7 @@ var margin = { top: 20, right: 20, bottom: 50, left: 50 },
 
 
 var x = d3.scale.linear()
-    .range([0, ww]).nice();
+    .range([0, width]).nice();
 
 var y = d3.scale.linear()
     .range([height, 0]).nice();
@@ -53,7 +54,7 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .tickSize(-ww);
+        .tickSize(-width);
 
 //    var color = d3.scale.category10();
 
@@ -95,18 +96,20 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
         .classed("x axis", true)
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
+        .style("fill", "#8e8f91")
         .append("text")
         .classed("label", true)
         .attr("x", ww - 50)
         .attr("y", margin.bottom - 10)
         .style("text-anchor", "end")
         // .text(xCat)
-        .text("після школи")
+        .text("Після школи")
         .attr("class", "axis");
 
     svg.append("g")
         .classed("y axis", true)
         .call(yAxis)
+        .style("fill", "#8e8f91")
         .append("text")
         .classed("label", true)
         .attr("transform", "rotate(-90)")
@@ -114,7 +117,7 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         // .text(yCat);
-        .text("молодші спеціалісти")
+        .text("Молодші спеціалісти")
         .attr("class", "axis");
 
     var objects = svg.append("svg")
@@ -185,9 +188,18 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
     //     .text("порог");
 
     d3.select("#contract").on("click", contract);
-    d3.select("#budget").on("click", budget);
+    d3.select("#budget").on("click", budget)
+    //     .on("click", function (d) {
+    //     d3.select(this).style("background-color", "grey");
+    // })
+    ;
+
+
+
 
     function contract() {
+        d3.select("#contract").classed("active", true);
+        d3.select("#budget").classed("active", false);
         xCat = "x2";
         yCat = "y2";
         colorCat = "#a4a5a7";
@@ -216,6 +228,8 @@ d3.csv("data/zno_for scatterplot(new)-2.csv", function(data) {
     }
 
     function budget() {
+        d3.select("#contract").classed("active", false);
+        d3.select("#budget").classed("active", true);
         xCat = "x1";
         yCat = "y1";
         colorCat = "#faa61a";
